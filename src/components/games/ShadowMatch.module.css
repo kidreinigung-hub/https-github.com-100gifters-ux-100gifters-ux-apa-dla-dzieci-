@@ -1,0 +1,340 @@
+.shadowMatch {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #F5F0F5 0%, #D5E8D5 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-light);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.statBox {
+  background: var(--color-secondary);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-large);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  text-align: center;
+  font-weight: bold;
+  font-size: var(--font-size-large);
+  min-width: 120px;
+}
+
+.value {
+  color: #333;
+  font-size: var(--font-size-xl);
+}
+
+.gameArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+.section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.5);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
+}
+
+.section h3 {
+  margin: 0;
+  font-size: var(--font-size-large);
+  color: #333;
+  text-align: center;
+}
+
+.itemsContainer,
+.shadowsContainer {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Draggable Items */
+.draggableItem {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-large);
+  background: var(--color-primary);
+  cursor: grab;
+  box-shadow: var(--shadow-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+
+.draggableItem:hover:not(.matched) {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-strong);
+  cursor: grab;
+}
+
+.draggableItem:active:not(.matched) {
+  cursor: grabbing;
+}
+
+.draggableItem.matched {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: scale(0.7);
+}
+
+.emoji {
+  font-size: 40px;
+  line-height: 1;
+}
+
+/* Drop Zones */
+.dropZone {
+  width: 90px;
+  height: 90px;
+  border: 3px dashed #333;
+  border-radius: var(--radius-large);
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dropZone:hover:not(.matched) {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.dropZone.matched {
+  background: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+}
+
+.shadow {
+  font-size: 50px;
+  color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shadow span {
+  line-height: 1;
+}
+
+.checkmark {
+  position: absolute;
+  font-size: 30px;
+  color: var(--color-success);
+  background: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleIn 0.3s ease-out;
+  font-weight: bold;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.quitButton {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 15;
+}
+
+.gameOverModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.gameOverCard {
+  background: white;
+  padding: var(--spacing-xxl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-strong);
+  max-width: 400px;
+  width: 90%;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.gameOverCard h2 {
+  font-size: var(--font-size-xxl);
+  margin: 0 0 var(--spacing-lg) 0;
+  color: var(--color-secondary);
+}
+
+.gameOverCard p {
+  font-size: var(--font-size-large);
+  margin: var(--spacing-md) 0;
+  color: #333;
+}
+
+.gameOverCard strong {
+  color: var(--color-success);
+  font-size: var(--font-size-xl);
+}
+
+.message {
+  font-size: var(--font-size-large) !important;
+  color: var(--color-warning) !important;
+}
+
+/* Accessibility - High Contrast */
+:global(.highContrast) .shadowMatch {
+  filter: contrast(1.5);
+}
+
+:global(.highContrast) .section,
+:global(.highContrast) .statBox,
+:global(.highContrast) .dropZone {
+  border: 4px solid black !important;
+}
+
+/* Accessibility - Black & White */
+:global(.bw) .shadowMatch {
+  background: white !important;
+}
+
+:global(.bw) .section {
+  background: white !important;
+  border: 3px solid black !important;
+}
+
+:global(.bw) .statBox {
+  background: white !important;
+  color: black !important;
+  border: 3px solid black !important;
+}
+
+:global(.bw) .draggableItem {
+  background: #000000 !important;
+  color: white !important;
+}
+
+:global(.bw) .dropZone {
+  border-color: black !important;
+  background: white !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    gap: var(--spacing-md);
+  }
+  
+  .statBox {
+    min-width: 100px;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-medium);
+  }
+  
+  .draggableItem {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .emoji {
+    font-size: 35px;
+  }
+  
+  .dropZone {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .shadow {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .draggableItem {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .emoji {
+    font-size: 28px;
+  }
+  
+  .dropZone {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .shadow {
+    font-size: 35px;
+  }
+  
+  .quitButton {
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+}

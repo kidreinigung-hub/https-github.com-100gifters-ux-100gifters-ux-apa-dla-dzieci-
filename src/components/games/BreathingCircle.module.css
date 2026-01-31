@@ -1,0 +1,203 @@
+.breathingContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.gameArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.title {
+  font-size: 28px;
+  color: white;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.circleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.breathingCircle {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transition: all 0.1s ease-out;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.instruction {
+  font-size: 24px;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  min-width: 200px;
+  animation: fadeInOut 0.5s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.info {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.info p {
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.completeButton,
+.toggleButton {
+  padding: 15px 40px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.completeButton {
+  background: #4caf50;
+  color: white;
+}
+
+.completeButton:hover {
+  background: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.toggleButton {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  border: 2px solid white;
+}
+
+.toggleButton:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .gameArea {
+    gap: 30px;
+  }
+
+  .breathingCircle {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .instruction {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .breathingContainer {
+    padding: 10px;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .statBox {
+    padding: 10px;
+  }
+
+  .value {
+    font-size: 20px;
+  }
+
+  .gameArea {
+    gap: 20px;
+  }
+
+  .breathingCircle {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .instruction {
+    font-size: 16px;
+  }
+
+  .info {
+    padding: 15px;
+  }
+
+  .info p {
+    font-size: 14px;
+  }
+
+  .completeButton,
+  .toggleButton {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+}

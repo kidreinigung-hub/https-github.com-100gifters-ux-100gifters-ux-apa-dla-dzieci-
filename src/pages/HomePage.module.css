@@ -1,0 +1,137 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.welcome {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success) 100%);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-medium);
+}
+
+.greeting {
+  font-size: var(--font-size-xl);
+  color: #333;
+  margin: 0 0 var(--spacing-md) 0;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: var(--font-size-medium);
+  color: #555;
+  margin: 0;
+}
+
+.quickStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.statCard {
+  text-align: center;
+}
+
+.statCard h3 {
+  font-size: var(--font-size-medium);
+}
+
+.statCard p {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: #333;
+}
+
+.mainMenu {
+  padding: var(--spacing-lg);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-light);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-large);
+  text-align: center;
+  margin: 0 0 var(--spacing-xl) 0;
+  color: #333;
+  font-weight: 700;
+}
+
+.buttonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.buttonWrapper button {
+  width: 100%;
+  min-width: 100%;
+}
+
+.buttonDescription {
+  font-size: var(--font-size-small);
+  text-align: center;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+}
+
+.motivation {
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.motivationCard {
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-success) 0%, var(--color-warning) 100%);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-medium);
+  border: 3px solid #E0D5C0;
+}
+
+.motivationText {
+  font-size: var(--font-size-large);
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Responsywny */
+@media (max-width: 768px) {
+  .homePage {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+  }
+
+  .greeting {
+    font-size: var(--font-size-large);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-small);
+  }
+
+  .buttonGrid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .motivationText {
+    font-size: var(--font-size-medium);
+  }
+}

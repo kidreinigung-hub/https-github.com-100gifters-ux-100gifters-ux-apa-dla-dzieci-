@@ -1,0 +1,159 @@
+/* Styl Card */
+
+.card {
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-large);
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-medium);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  border: 3px solid transparent;
+}
+
+.card.normal {
+  background-color: #FFFFFF;
+  border-color: #E0E0E0;
+}
+
+.card.highlight {
+  background-color: var(--color-primary);
+  border-color: #DFC4DF;
+  box-shadow: var(--shadow-strong);
+}
+
+.card.disabled {
+  opacity: 0.5;
+  background-color: #F5F5F5;
+}
+
+/* Rozmiary */
+.card.small {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-medium);
+}
+
+.card.medium {
+  padding: var(--spacing-lg);
+}
+
+.card.large {
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+}
+
+/* Interaktywna karta */
+.card.interactive {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.card.interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+  border-color: #CCC;
+}
+
+.card.interactive:active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.card.interactive:focus {
+  outline: 4px solid #FFD700;
+  outline-offset: 2px;
+}
+
+/* Kontener obrazu */
+.imageContainer {
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+}
+
+.card.large .imageContainer {
+  max-width: 300px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: var(--spacing-md);
+}
+
+/* Tekst */
+.title {
+  font-size: var(--font-size-large);
+  font-weight: 700;
+  text-align: center;
+  color: #333;
+  margin: 0;
+  word-break: break-word;
+}
+
+.card.small .title {
+  font-size: var(--font-size-medium);
+}
+
+.card.large .title {
+  font-size: var(--font-size-xl);
+}
+
+.description {
+  font-size: var(--font-size-medium);
+  text-align: center;
+  color: #666;
+  margin: 0;
+  word-break: break-word;
+}
+
+.card.small .description {
+  font-size: var(--font-size-small);
+}
+
+/* Czarno-białe */
+.card.bw {
+  background-color: #FFFFFF;
+  border: 3px solid #000000;
+  color: #000000;
+}
+
+.card.bw .imageContainer {
+  background-color: #FFFFFF;
+  border: 2px solid #000000;
+}
+
+/* Wysoki kontrast */
+.card.highContrast {
+  border-width: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsywny */
+@media (max-width: 768px) {
+  .imageContainer {
+    max-width: 150px;
+  }
+
+  .card.large .imageContainer {
+    max-width: 200px;
+  }
+
+  .title {
+    font-size: var(--font-size-medium);
+  }
+
+  .description {
+    font-size: var(--font-size-small);
+  }
+}

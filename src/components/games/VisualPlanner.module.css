@@ -1,0 +1,232 @@
+.plannerContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  padding: 20px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff6b9d;
+}
+
+.gameArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.title {
+  font-size: 32px;
+  color: white;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  border: 3px solid #ff6b9d;
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.taskItem:hover {
+  background: #fff5f7;
+  transform: translateX(10px);
+}
+
+.taskItem.completed {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  opacity: 0.8;
+}
+
+.taskEmoji {
+  font-size: 24px;
+  min-width: 30px;
+}
+
+.taskName {
+  flex: 1;
+  color: #333;
+}
+
+.checkmark {
+  font-size: 24px;
+  color: #4caf50;
+  font-weight: bold;
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.successMessage {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease;
+}
+
+.celebration {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ff6b9d;
+  margin-bottom: 15px;
+  animation: pulse 0.6s ease infinite;
+}
+
+.successMessage p {
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.confetti {
+  position: fixed;
+  font-size: 30px;
+  top: -10px;
+  animation: fall 2s linear forwards;
+  pointer-events: none;
+  z-index: 99;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+  }
+
+  .tasksList {
+    max-width: 100%;
+  }
+
+  .taskItem {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+
+  .taskEmoji {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .plannerContainer {
+    padding: 10px;
+  }
+
+  .header {
+    margin-bottom: 15px;
+  }
+
+  .statBox {
+    padding: 10px;
+  }
+
+  .value {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .taskItem {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .taskName {
+    font-size: 13px;
+  }
+
+  .successMessage {
+    padding: 20px;
+  }
+
+  .celebration {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,165 @@
+.gamesPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  text-align: center;
+  color: #333;
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.gamesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-light);
+}
+
+.gameCard {
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.gameCard:hover {
+  transform: scale(1.05);
+}
+
+.gameDetails {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-lg);
+}
+
+.detailsCard {
+  background-color: #FFFFFF;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-medium);
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.gameName {
+  font-size: var(--font-size-xl);
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+.gameDescription {
+  font-size: var(--font-size-medium);
+  color: #666;
+  text-align: center;
+  margin: 0;
+}
+
+.difficultySelector {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background-color: #F5F5F5;
+  border-radius: var(--radius-medium);
+}
+
+.difficultyLabel {
+  font-size: var(--font-size-medium);
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.difficultyButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.diffButton {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 2px solid #DDD;
+  border-radius: var(--radius-medium);
+  background-color: #FFFFFF;
+  color: #333;
+  font-size: var(--font-size-medium);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.diffButton:hover {
+  background-color: #F5F5F5;
+  border-color: #CCC;
+}
+
+.diffButton.active {
+  background-color: var(--color-primary);
+  border-color: #DFC4DF;
+  box-shadow: var(--shadow-medium);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.actions button {
+  width: 100%;
+}
+
+.info {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-success);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-light);
+}
+
+.infoText {
+  font-size: var(--font-size-large);
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .gamesPage {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+  }
+
+  .gamesList {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+
+  .detailsCard {
+    padding: var(--spacing-lg);
+  }
+
+  .title {
+    font-size: var(--font-size-large);
+  }
+
+  .gameName {
+    font-size: var(--font-size-large);
+  }
+
+  .gameDescription {
+    font-size: var(--font-size-small);
+  }
+}

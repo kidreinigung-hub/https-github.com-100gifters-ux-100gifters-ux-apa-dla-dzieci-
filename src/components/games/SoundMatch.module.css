@@ -1,0 +1,281 @@
+.soundMatchContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.quitButton {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quitButton:hover {
+  background: #ff5252;
+  transform: scale(1.05);
+}
+
+.gameArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.instruction {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  animation: slideDown 0.5s ease;
+}
+
+.soundIndicator {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soundWave {
+  font-size: 50px;
+  animation: pulse 0.5s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.animalButton {
+  background: white;
+  border: 3px solid transparent;
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.animalButton:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  border-color: #667eea;
+}
+
+.animalButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.animalEmoji {
+  font-size: 40px;
+}
+
+.animalName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+}
+
+.feedback {
+  font-size: 36px;
+  font-weight: bold;
+  animation: slideUp 0.5s ease;
+  text-align: center;
+  color: white;
+}
+
+.gameOverModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modalContent h2 {
+  font-size: 32px;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.modalContent p {
+  font-size: 20px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.replayButton {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.replayButton:hover {
+  background: #5568d3;
+  transform: scale(1.05);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quitButton {
+    grid-column: 1 / -1;
+  }
+
+  .optionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instruction {
+    font-size: 16px;
+  }
+
+  .animalButton {
+    padding: 15px;
+  }
+
+  .animalEmoji {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .soundMatchContainer {
+    padding: 10px;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .optionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .instruction {
+    font-size: 14px;
+  }
+
+  .animalEmoji {
+    font-size: 28px;
+  }
+
+  .animalName {
+    font-size: 12px;
+  }
+}

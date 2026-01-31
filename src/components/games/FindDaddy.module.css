@@ -1,0 +1,238 @@
+.findDaddyContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  padding: 20px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f5576c;
+}
+
+.gameArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.title {
+  font-size: 28px;
+  color: white;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.instruction {
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  margin: 0;
+}
+
+.roomItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.roomItem {
+  aspect-ratio: 1;
+  border: 3px solid white;
+  border-radius: 15px;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.roomItem:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.roomItem:disabled {
+  cursor: not-allowed;
+}
+
+.roomItem.revealed {
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.emoji {
+  animation: scaleIn 0.3s ease;
+}
+
+.question {
+  color: white;
+  font-size: 36px;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.successMessage {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease;
+}
+
+.celebration {
+  font-size: 48px;
+  margin-bottom: 15px;
+  animation: bounce 0.6s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.successMessage p {
+  font-size: 20px;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.replayButton {
+  background: #f5576c;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.replayButton:hover {
+  background: #d81e2d;
+  transform: scale(1.05);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .roomItems {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .roomItem {
+    font-size: 32px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .findDaddyContainer {
+    padding: 10px;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .statBox {
+    padding: 10px;
+  }
+
+  .value {
+    font-size: 20px;
+  }
+
+  .roomItems {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .roomItem {
+    font-size: 28px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .instruction {
+    font-size: 14px;
+  }
+
+  .successMessage {
+    padding: 20px;
+  }
+
+  .celebration {
+    font-size: 36px;
+  }
+
+  .successMessage p {
+    font-size: 16px;
+  }
+
+  .replayButton {
+    width: 100%;
+    padding: 10px;
+  }
+}

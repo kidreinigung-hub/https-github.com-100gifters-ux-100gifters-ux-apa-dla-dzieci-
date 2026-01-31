@@ -1,0 +1,327 @@
+.runawayButton {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #F5F0F5 0%, #D5E8D5 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  position: absolute;
+  top: var(--spacing-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--spacing-lg);
+  z-index: 10;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 var(--spacing-md);
+}
+
+.statBox {
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  text-align: center;
+  font-weight: bold;
+  font-size: var(--font-size-large);
+}
+
+.value {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+}
+
+.instruction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 5;
+  animation: fadeInOut 4s ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+.instruction p {
+  font-size: var(--font-size-xl);
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-strong);
+  margin: var(--spacing-md) 0;
+  color: #333;
+}
+
+.runawaybuttonElement {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: var(--radius-large);
+  cursor: pointer;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-strong);
+  transition: all 0.2s ease;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}
+
+.runawaybuttonElement:hover:not(:disabled) {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: var(--shadow-strong), 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.runawaybuttonElement:active:not(:disabled) {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.runawaybuttonElement:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.buttonText {
+  display: block;
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+.helpButton {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateX(-50%) translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.successButton {
+  background: var(--color-success);
+  border: none;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-large);
+  cursor: pointer;
+  font-size: var(--font-size-xl);
+  box-shadow: var(--shadow-strong);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  color: #333;
+}
+
+.successButton span {
+  font-size: 2em;
+}
+
+.successButton p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.successButton:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.successButton:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.quitButton {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 25;
+}
+
+.gameOverModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(5px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.gameOverCard {
+  background: white;
+  padding: var(--spacing-xxl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-strong);
+  max-width: 400px;
+  width: 90%;
+  animation: slideUpCard 0.3s ease-out;
+}
+
+@keyframes slideUpCard {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.gameOverCard h2 {
+  font-size: var(--font-size-xxl);
+  margin: 0 0 var(--spacing-lg) 0;
+  color: var(--color-primary);
+}
+
+.gameOverCard p {
+  font-size: var(--font-size-large);
+  margin: var(--spacing-md) 0;
+  color: #333;
+}
+
+.gameOverCard strong {
+  color: var(--color-success);
+  font-size: var(--font-size-xl);
+}
+
+.message {
+  font-size: var(--font-size-xl) !important;
+  color: var(--color-warning) !important;
+  margin-top: var(--spacing-lg) !important;
+}
+
+/* Accessibility - High Contrast */
+:global(.highContrast) .runawayButton {
+  filter: contrast(1.5);
+}
+
+:global(.highContrast) .statBox,
+:global(.highContrast) .instruction p,
+:global(.highContrast) .runawaybuttonElement {
+  border: 4px solid black !important;
+}
+
+/* Accessibility - Black & White */
+:global(.bw) .runawayButton {
+  background: white !important;
+}
+
+:global(.bw) .statBox,
+:global(.bw) .instruction p {
+  background: white !important;
+  color: black !important;
+  border: 3px solid black !important;
+}
+
+:global(.bw) .runawaybuttonElement {
+  background: #000000 !important;
+  color: white !important;
+  border: 3px solid black !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    top: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+  
+  .statBox {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-medium);
+  }
+  
+  .runawaybuttonElement {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+  }
+  
+  .instruction p {
+    font-size: var(--font-size-large);
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    top: var(--spacing-sm);
+  }
+  
+  .statBox {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-medium);
+  }
+  
+  .runawaybuttonElement {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
+  
+  .quitButton {
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+  
+  .gameOverCard {
+    padding: var(--spacing-lg);
+  }
+}

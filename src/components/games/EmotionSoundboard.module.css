@@ -1,0 +1,289 @@
+.emotionSoundboard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #F5F0F5 0%, #D5E8D5 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-light);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.statBox {
+  background: var(--color-success);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-large);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  text-align: center;
+  font-weight: bold;
+  font-size: var(--font-size-large);
+  min-width: 120px;
+}
+
+.value {
+  color: #333;
+  font-size: var(--font-size-xl);
+}
+
+.gameArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+.emotionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 500px;
+}
+
+.emotionButton {
+  padding: var(--spacing-lg);
+  border: 3px solid #ddd;
+  border-radius: var(--radius-large);
+  background: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-medium);
+}
+
+.emotionButton:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--color-success);
+}
+
+.emotionButton:active:not(:disabled),
+.emotionButton.selected {
+  transform: scale(0.95);
+  background: var(--color-success);
+  animation: emotionPulse 0.3s ease-out;
+}
+
+.emotionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes emotionPulse {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+.emotionEmoji {
+  font-size: 50px;
+  line-height: 1;
+}
+
+.emotionName {
+  font-weight: bold;
+  color: #333;
+  font-size: var(--font-size-medium);
+  text-align: center;
+}
+
+.instruction {
+  font-size: var(--font-size-large);
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
+  text-align: center;
+  color: #333;
+  margin: 0;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.quitButton {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 15;
+}
+
+.gameOverModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.gameOverCard {
+  background: white;
+  padding: var(--spacing-xxl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-strong);
+  max-width: 400px;
+  width: 90%;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.gameOverCard h2 {
+  font-size: var(--font-size-xxl);
+  margin: 0 0 var(--spacing-lg) 0;
+  color: var(--color-success);
+}
+
+.gameOverCard p {
+  font-size: var(--font-size-large);
+  margin: var(--spacing-md) 0;
+  color: #333;
+}
+
+.gameOverCard strong {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+}
+
+.message {
+  font-size: var(--font-size-large) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Accessibility - High Contrast */
+:global(.highContrast) .emotionSoundboard {
+  filter: contrast(1.5);
+}
+
+:global(.highContrast) .emotionButton,
+:global(.highContrast) .statBox {
+  border: 4px solid black !important;
+}
+
+/* Accessibility - Black & White */
+:global(.bw) .emotionSoundboard {
+  background: white !important;
+}
+
+:global(.bw) .emotionButton {
+  background: white !important;
+  color: black !important;
+  border: 3px solid black !important;
+}
+
+:global(.bw) .statBox {
+  background: white !important;
+  color: black !important;
+  border: 3px solid black !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    gap: var(--spacing-md);
+  }
+  
+  .statBox {
+    min-width: 100px;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-medium);
+  }
+  
+  .emotionGrid {
+    gap: var(--spacing-md);
+  }
+  
+  .emotionButton {
+    padding: var(--spacing-md);
+  }
+  
+  .emotionEmoji {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .emotionButton {
+    padding: var(--spacing-md);
+  }
+  
+  .emotionEmoji {
+    font-size: 35px;
+  }
+  
+  .emotionName {
+    font-size: var(--font-size-small);
+  }
+  
+  .quitButton {
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+}

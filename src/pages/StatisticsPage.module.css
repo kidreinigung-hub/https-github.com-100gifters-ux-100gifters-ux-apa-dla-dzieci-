@@ -1,0 +1,121 @@
+.statsPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  text-align: center;
+  color: #333;
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.mainStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.detailedStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.statCard {
+  background-color: #FFFFFF;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-light);
+}
+
+.cardTitle {
+  font-size: var(--font-size-large);
+  color: #333;
+  margin: 0 0 var(--spacing-lg) 0;
+  font-weight: 700;
+}
+
+.gamesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.gameItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: #F5F5F5;
+  border-radius: var(--radius-medium);
+  font-size: var(--font-size-medium);
+}
+
+.score {
+  font-weight: 700;
+  color: #2E8B57;
+}
+
+.wordCount {
+  font-size: var(--font-size-large);
+  font-weight: 700;
+  color: #2E8B57;
+  text-align: center;
+  margin: 0;
+}
+
+.noData {
+  font-size: var(--font-size-medium);
+  color: #999;
+  text-align: center;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.actions button {
+  min-width: 200px;
+}
+
+.motivation {
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-success) 0%, var(--color-warning) 100%);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+}
+
+.motivationText {
+  font-size: var(--font-size-large);
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .statsPage {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+  }
+
+  .mainStats {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .detailedStats {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .title {
+    font-size: var(--font-size-large);
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "autism-assistant-app",
+  "version": "1.0.0",
+  "description": "Zaawansowana aplikacja wspomagająca rozwój dzieci z autyzmem",
+  "homepage": "./",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0",
+    "jspdf": "^2.5.1",
+    "html2canvas": "^1.4.1",
+    "chart.js": "^3.9.1",
+    "react-chartjs-2": "^4.3.1",
+    "react-icons": "^4.8.0",
+    "i18next": "^22.4.9",
+    "react-i18next": "^12.1.4",
+    "zustand": "^4.3.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1"
+  }
+}

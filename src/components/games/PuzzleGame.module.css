@@ -1,0 +1,278 @@
+.puzzleContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.quitButton {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quitButton:hover {
+  background: #ff5252;
+  transform: scale(1.05);
+}
+
+.gameArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.instruction {
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+}
+
+.puzzleBoard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropZonesGrid {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.dropZone {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.dropZone:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dropZone.filled {
+  border-style: solid;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.piecesArea {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.piecesLabel {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.pieces {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 15px;
+}
+
+.piece {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  user-select: none;
+}
+
+.piece:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.piece:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.gameOverModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modalContent h2 {
+  font-size: 32px;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.modalContent p {
+  font-size: 18px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.replayButton {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.replayButton:hover {
+  background: #5568d3;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quitButton {
+    grid-column: 1 / -1;
+  }
+
+  .dropZone {
+    width: 80px;
+    height: 80px;
+  }
+
+  .piece {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+
+  .instruction {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .puzzleContainer {
+    padding: 10px;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .statBox {
+    padding: 10px;
+  }
+
+  .value {
+    font-size: 20px;
+  }
+
+  .dropZone {
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+  }
+
+  .pieces {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+  }
+
+  .piece {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .instruction {
+    font-size: 14px;
+  }
+}
